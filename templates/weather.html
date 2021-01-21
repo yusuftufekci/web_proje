@@ -2,6 +2,23 @@
 <html>
 <head>
 <title>Yusuf</title>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function myFunction() {
+          //document.getElementById("submitWeather").innerHTML = "Hello World";
+          const RAPIDAPI_API_URL='http://api.weatherstack.com/current?access_key=6403ea2be0d5fbcc3a3010243fdb87dd&query='
+          const city=document.getElementById("city").value
+          axios.get(`${RAPIDAPI_API_URL}${city}`)
+          .then(response => {
+            console.log(response.data);
+            document.getElementById("dene1").innerHTML = response.data.location.name;
+            document.getElementById("dene2").innerHTML ="Sicaklik "+ response.data.current.temperature;
+
+
+          })
+        }
+         
+        </script>
 </head>
 <link rel="stylesheet" type="text/css" href="homework.css">
 
@@ -39,23 +56,7 @@
 
         </div>
     </div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-        function myFunction() {
-          //document.getElementById("submitWeather").innerHTML = "Hello World";
-          const RAPIDAPI_API_URL='http://api.weatherstack.com/current?access_key=6403ea2be0d5fbcc3a3010243fdb87dd&query='
-          const city=document.getElementById("city").value
-          axios.get(`${RAPIDAPI_API_URL}${city}`)
-          .then(response => {
-            console.log(response.data);
-            document.getElementById("dene1").innerHTML = response.data.location.name;
-            document.getElementById("dene2").innerHTML ="Sicaklik "+ response.data.current.temperature;
-
-
-          })
-        }
-         
-        </script>
+  
 
 </body>
 </html>
