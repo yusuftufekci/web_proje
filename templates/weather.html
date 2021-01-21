@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Yusuf</title>
+</head>
+<link rel="stylesheet" type="text/css" href="homework.css">
+
+<body>
+<div class="myNav" >
+    <nav>
+    <ul>
+
+            <li class="city"><a href="/">About Me</a></li>
+            <li class="city"><a href="myClasses">My Classes</a></li>
+            <li class="city"><a href="movie">My Favorite Movies</a></li>
+            <li class="city"><a href="book">My Favorite Books</a></li>
+            <li class="city"><a href="myFriend">My Friend</a></li>
+            <li class="city"><a href="contactMe">Contact ME</a></li>
+            <li class="city"><a href="weather">Weather Api</a></li>
+
+      </ul>
+    </nav>
+    <link rel="stylesheet" type="text/css" href="homework.css">
+</div>
+
+    <div class= "container">
+        <div class="row" style="margin-bottom:20px;">
+            <h1 >Enter city name </h1>
+           
+        </div>
+        <div class="start " id="rowDiv">
+            <input type="text" name="city" id="city"  placeholder="City Name">
+            <button id="submitWeather" onclick="myFunction()" class="btn btn-primary">Search City </button>
+        </div>
+        <div class="sicaklik">
+            <p class="dene" id="dene1" >   </p>
+            <p class="dene" id="dene2" >   </p>
+            
+
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function myFunction() {
+          //document.getElementById("submitWeather").innerHTML = "Hello World";
+          const RAPIDAPI_API_URL='http://api.weatherstack.com/current?access_key=6403ea2be0d5fbcc3a3010243fdb87dd&query='
+          const city=document.getElementById("city").value
+          axios.get(`${RAPIDAPI_API_URL}${city}`)
+          .then(response => {
+            console.log(response.data);
+            document.getElementById("dene1").innerHTML = response.data.location.name;
+            document.getElementById("dene2").innerHTML ="Sicaklik "+ response.data.current.temperature;
+
+
+          })
+        }
+         
+        </script>
+
+</body>
+</html>
+
+
+
+
+
+

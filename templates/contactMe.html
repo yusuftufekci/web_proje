@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Yusuf</title><link rel="stylesheet" type="text/css" href="static/homework.css">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+    function myFunction() {
+          //document.getElementById("submitWeather").innerHTML = "Hello World";
+          const herokuUrl = 'http://127.0.0.1:5000/contact2'
+          const formObject = {
+              name: document.getElementById("name").value,
+              email: document.getElementById("email").value,
+              message: document.getElementById("message").value
+          }
+          axios.post(`${herokuUrl}`, formObject)
+          .then(response => {
+              alert("Mesajiniz gonderildi")
+            console.log(response);
+
+
+          })
+        }
+
+
+
+
+</script>
+
+</head>
+
+<body>
+<div class="myNav" >
+    <nav>
+    <ul>
+
+            <li class="city"><a href="/">About Me</a></li>
+            <li class="city"><a href="myClasses">My Classes</a></li>
+            <li class="city"><a href="movie">My Favorite Movies</a></li>
+            <li class="city"><a href="book">My Favorite Books</a></li>
+            <li class="city"><a href="myFriend">My Friend</a></li>
+            <li class="city"><a href="contactMe">Contact ME</a></li>
+            <li class="city"><a href="weather">Weather Api</a></li>
+
+
+      </ul>
+    </nav>
+    <link rel="stylesheet" type="text/css" href="homework.css">
+</div>
+    <form action="" method="post" class="basic-grey">
+        <h1>Contact Me 
+        </h1>
+        <label>
+            <span>Your Name :</span>
+            <input id="name" type="text" name="name" placeholder="Your Full Name" />
+        </label>
+        
+        <label>
+            <span>Your Email :</span>
+            <input id="email" type="email" name="email" placeholder="Valid Email Address" />
+        </label>
+        
+        <label>
+            <span>Message :</span>
+            <textarea id="message" name="message" placeholder="Your Message to Me"></textarea>
+        </label> 
+           
+         <label>
+            <span> </span> 
+            <input type="button" class="button" onClick="myFunction()" value="Send" />
+        </label>    
+    </form></body>
+
+</html>
+
